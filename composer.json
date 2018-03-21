@@ -11,6 +11,10 @@
     ],
     "description": "microservice framework base on swoole",
     "license": "Apache-2.0",
+    "require-dev": {
+        "eaglewu/swoole-ide-helper": "dev-master",
+        "phpunit/phpunit": "^5.7"
+    },
     "require": {
         "swoft/framework": "^1.0",
         "swoft/console": "^1.0",
@@ -34,10 +38,6 @@
             "type": "composer",
             "url": "https://packagist.phpcomposer.com"
         }
-    },
-    "require-dev": {
-        "eaglewu/swoole-ide-helper": "dev-master",
-        "phpunit/phpunit": "^5.7"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit -c phpunit.xml"
