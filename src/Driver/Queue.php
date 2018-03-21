@@ -8,118 +8,56 @@
  * @license https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace yii\queue\cli;
+namespace Swoft\Queue\Driver;
 
-use Yii;
-use yii\base\BootstrapInterface;
-use yii\base\InvalidConfigException;
-use yii\console\Application as ConsoleApp;
-use yii\helpers\Inflector;
+
 use Swoft\Queue\Queue as BaseQueue;
 
 
-abstract class Queue extends BaseQueue implements BootstrapInterface
+abstract class Queue extends BaseQueue 
 {
     /**
      * @event WorkerEvent
-     * @since 2.0.2
+     * 
      */
     const EVENT_WORKER_START = 'workerStart';
     /**
      * @event WorkerEvent
-     * @since 2.0.2
+     * 
      */
     const EVENT_WORKER_STOP = 'workerStop';
 
-    /**
-     * @var array|string
-     * @since 2.0.2
-     */
-    public $loopConfig = SignalLoop::class;
-    /**
-     * @var string command class name
-     */
-    public $commandClass = Command::class;
-    /**
-     * @var array of additional options of command
-     */
-    public $commandOptions = [];
-    /**
-     * @var callable|null
-     * @internal for worker command only
-     */
+
+    // /**
+    //  * @var string command class name
+    //  */
+    // public $commandClass = Command::class;
+    // /**
+    //  * @var array of additional options of command
+    //  */
+    // public $commandOptions = [];
+    // /**
+    //  * @var callable|null
+    //  * @internal for worker command only
+    //  */
+    
     public $messageHandler;
 
     /**
      * @var int current process ID of a worker.
-     * @since 2.0.2
+     * 
      */
     private $_workerPid;
 
 
-    /**
-     * @return string command id
-     * @throws
-     */
-    protected function getCommandId()
-    {
-        foreach (Yii::$app->getComponents(false) as $id => $component) {
-            if ($component === $this) {
-                return Inflector::camel2id($id);
-            }
-        }
-        throw new InvalidConfigException('Queue must be an application component.');
-    }
 
-    /**
-     * @inheritdoc
-     */
-    public function bootstrap($app)
-    {
-        if ($app instanceof ConsoleApp) {
-            $app->controllerMap[$this->getCommandId()] = [
-                'class' => $this->commandClass,
-                'queue' => $this,
-            ] + $this->commandOptions;
-        }
-    }
-
-    /**
-     * Runs worker.
-     *
-     * @param callable $handler
-     * @return null|int exit code
-     * @since 2.0.2
-     */
-    protected function runWorker(callable $handler)
-    {
-        $this->_workerPid = getmypid();
-        $loop = Yii::createObject($this->loopConfig, [$this]);
-
-        $event = new WorkerEvent(['loop' => $loop]);
-        $this->trigger(self::EVENT_WORKER_START, $event);
-        if ($event->handled || $event->exitCode !== null) {
-            return $event->exitCode;
-        }
-
-        $exitCode = null;
-        try {
-            $exitCode = call_user_func($handler, $loop);
-        } finally {
-            $event = new WorkerEvent(['loop' => $loop, 'exitCode' => $exitCode]);
-            $this->trigger(self::EVENT_WORKER_STOP, $event);
-            $this->_workerPid = null;
-        }
-
-        return $event->exitCode;
-    }
 
     /**
      * Gets process ID of a worker.
      *
      * @inheritdoc
      * @return int
-     * @since 2.0.2
+     * 
      */
     public function getWorkerPid()
     {

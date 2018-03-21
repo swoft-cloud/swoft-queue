@@ -13,17 +13,14 @@ namespace Swoft\Queue\Driver\RabbitMQ;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-use yii\base\Application as BaseApp;
-use yii\base\Event;
-use yii\base\NotSupportedException;
-use yii\queue\cli\Queue as CliQueue;
+use Swoft\App;
+use Swoft\Queue\Exception\NotSupportedException;
+use Swoft\Queue\Driver\Queue as CliQueue;
 
 /**
  * Amqp Queue
  *
- * @deprecated since 2.0.2 and will be removed in 2.1. Consider using amqp_interop driver instead.
  *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
  */
 class Queue extends CliQueue
 {
@@ -55,9 +52,9 @@ class Queue extends CliQueue
     public function init()
     {
         parent::init();
-        Event::on(BaseApp::class, BaseApp::EVENT_AFTER_REQUEST, function () {
-            $this->close();
-        });
+        // Event::on(App::class, BaseApp::EVENT_AFTER_REQUEST, function () {
+        //     $this->close();
+        // });
     }
 
     /**
