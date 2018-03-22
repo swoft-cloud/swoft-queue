@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3414fcdfe7c62028b9e4228f8be0298d",
+    "content-hash": "7852813fffbcccc0a0e78690599bfa1f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -536,16 +536,16 @@
         },
         {
             "name": "swoft/console",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swoft-cloud/swoft-console.git",
-                "reference": "6348c3b8b9ad96c4e7c4589a03e4fef19e0e70f5"
+                "reference": "8fa3450b60052298c17143fafc1cecc8db8d2b01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-console/6348c3b8b9ad96c4e7c4589a03e4fef19e0e70f5.zip",
-                "reference": "6348c3b8b9ad96c4e7c4589a03e4fef19e0e70f5",
+                "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-console/8fa3450b60052298c17143fafc1cecc8db8d2b01.zip",
+                "reference": "8fa3450b60052298c17143fafc1cecc8db8d2b01",
                 "shasum": ""
             },
             "require": {
@@ -576,20 +576,20 @@
                 "swoft",
                 "swoole"
             ],
-            "time": "2018-03-14T09:49:07+00:00"
+            "time": "2018-03-19T10:11:19+00:00"
         },
         {
             "name": "swoft/framework",
-            "version": "v1.0.7",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swoft-cloud/swoft-framework.git",
-                "reference": "c3194ff5dc8b15e7a351ec73ba13ce115faf0c15"
+                "reference": "c6c4c63e93e7f682e2f2285ba59339329c9ae487"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/c3194ff5dc8b15e7a351ec73ba13ce115faf0c15.zip",
-                "reference": "c3194ff5dc8b15e7a351ec73ba13ce115faf0c15",
+                "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/c6c4c63e93e7f682e2f2285ba59339329c9ae487.zip",
+                "reference": "c6c4c63e93e7f682e2f2285ba59339329c9ae487",
                 "shasum": ""
             },
             "require": {
@@ -605,6 +605,7 @@
             },
             "require-dev": {
                 "eaglewu/swoole-ide-helper": "dev-master",
+                "friendsofphp/php-cs-fixer": "^2.10",
                 "phpunit/phpunit": "^5.7"
             },
             "type": "library",
@@ -627,7 +628,7 @@
                 "swoft",
                 "swoole"
             ],
-            "time": "2018-03-13T16:18:29+00:00"
+            "time": "2018-03-21T11:42:59+00:00"
         },
         {
             "name": "swoft/http-message",
@@ -672,49 +673,6 @@
                 "swoole"
             ],
             "time": "2018-02-26T13:35:57+00:00"
-        },
-        {
-            "name": "swoft/service-governance",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swoft-cloud/swoft-service-governance.git",
-                "reference": "7022adfa2dd4c1c4ec85c551ec1feb9df752e22f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-service-governance/7022adfa2dd4c1c4ec85c551ec1feb9df752e22f.zip",
-                "reference": "7022adfa2dd4c1c4ec85c551ec1feb9df752e22f",
-                "shasum": ""
-            },
-            "require": {
-                "swoft/framework": "^1.0"
-            },
-            "require-dev": {
-                "eaglewu/swoole-ide-helper": "dev-master",
-                "phpunit/phpunit": "^5.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Swoft\\Sg\\": "src/"
-                },
-                "files": [
-                    "src/Helper/Functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "microservice framework base on swoole",
-            "keywords": [
-                "Service Governance",
-                "php",
-                "swoft",
-                "swoole"
-            ],
-            "time": "2018-03-06T14:54:11+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
